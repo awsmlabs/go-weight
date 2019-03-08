@@ -2,7 +2,7 @@ package weight
 
 import (
 	"fmt"
-	rounding "github.com/mealfitx/rounding"
+	rounding "github.com/mealfit/go-rounding"
 )
 
 type Weight float64
