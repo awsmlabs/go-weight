@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	rounding "github.com/mealfit/go-rounding"
+	rounding "github.com/awsmlabs/go-rounding"
 )
 
 type Weight float64

@@ -1,3 +1,5 @@
-module github.com/mealfit/go-weight
+module github.com/awsmlabs/go-weight
 
-require github.com/mealfit/go-rounding v1.0.0
+go 1.12
+
+require github.com/awsmlabs/go-rounding v1.0.0
