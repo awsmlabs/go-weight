@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	rounding "github.com/awsmlabs/go-rounding"
+	"go.awsmlabs.co.uk/rounding"
 )
 
 type Weight float64

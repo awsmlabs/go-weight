@@ -1,2 +1,2 @@
-github.com/awsmlabs/go-rounding v1.0.0 h1:85F3I7LEBYYHf0+OtbHTjc9aDiw0hR3/9XFYIclWq/A=
-github.com/awsmlabs/go-rounding v1.0.0/go.mod h1:FLccNVCiH/DxLzw7UYkoJ5M5ZKIVXtacPVtbpYhia4M=
+go.awsmlabs.co.uk/rounding v1.2.0 h1:sAqFFBMacj6Qk80g3INCDaGfkd2B2/iNh/x+uplWnv0=
+go.awsmlabs.co.uk/rounding v1.2.0/go.mod h1:OlLCDP0KAbimRb+gEzyfGnEzwGmv651fNbZuMBJDn2w=
