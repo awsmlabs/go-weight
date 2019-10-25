@@ -4,7 +4,7 @@ import (
 	"errors"
 )
 
-var errLeadingInt = errors.New("distance: bad [0-9]*") // never printed
+var errLeadingInt = errors.New("weight: bad [0-9]*") // never printed
 
 // leadingInt consumes the leading [0-9]* from s.
 func leadingInt(s string) (x int64, rem string, err error) {
@@ -24,14 +24,14 @@ func leadingInt(s string) (x int64, rem string, err error) {
 }
 
 var unitMap = map[string]float64{
-	"kg":  float64(Kilogram),
+	"kg": float64(Kilogram),
 	"oz": float64(Ounce),
 	"lb": float64(Pound),
 	"st": float64(Stone),
-	"g": float64(Gram),
-	"N": float64(Newton),
+	"g":  float64(Gram),
+	"N":  float64(Newton),
 	"tn": float64(Tonne),
-	"c": float64(Carat),
+	"c":  float64(Carat),
 }
 
 func ParseWeight(s string) (Weight, error) {
