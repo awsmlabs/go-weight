@@ -10,12 +10,12 @@ func TestToString(t *testing.T) {
 		expected string
 	}{
 		{5 * Kilogram, "5kg"},
-		{2.2 * Pound, "1kg"},
+		{2.2 * Pound, "997.9g"},
 		{165 * Pound, "74.84kg"},
 		{1000 * Gram, "1kg"},
-		{9.8 * Newton, "1kg"},
+		{9.8 * Newton, "998.98g"},
 		{5000 * Carat, "1kg"},
-		{1 * Tonne, "1000kg"},
+		{1 * Tonne, "1tn"},
 	}
 
 	for _, tc := range testCases {
@@ -45,7 +45,6 @@ func TestParseWeightToKilograms(t *testing.T) {
 		{"150N", 15.29},
 		{"5000c", 1},
 		{"1tn", 1000},
-
 	}
 
 	for _, tc := range testCases {
