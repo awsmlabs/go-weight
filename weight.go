@@ -1,7 +1,7 @@
 package weight
 
 import (
-	"fmt"
+	"strconv"
 	"strings"
 
 	"go.awsmlabs.co.uk/rounding"
@@ -9,27 +9,46 @@ import (
 
 type Weight float64
 
+// weights
 const (
-	Kilogram Weight = 1
-	Newton          = Kilogram / 9.81
-	Gram            = Kilogram / 1000
-	Ounce           = Gram * 28.3495
-	Pound           = Ounce * 16
-	Stone           = Pound * 14
-	Tonne           = Kilogram * 1000
-	Carat           = Kilogram / 5000
+	Milligram Weight = 1
+	Gram             = Milligram * 1000
+	Kilogram         = Gram * 1000
+	Newton           = Kilogram / 9.81
+	Ounce            = Gram * 28.3495
+	Pound            = Ounce * 16
+	Stone            = Pound * 14
+	Tonne            = Kilogram * 1000
+	Carat            = Kilogram / 5000
 )
 
 func (w Weight) String() string {
-	return fmt.Sprintf("%vkg", rounding.RoundNearest(float64(w), 2))
+	switch {
+	case w < Gram:
+		return strconv.FormatFloat(rounding.RoundNearest(w.Milligrams(), 2), 'f', -1, 64) + "mg"
+	case w < Kilogram:
+		return strconv.FormatFloat(rounding.RoundNearest(w.Grams(), 2), 'f', -1, 64) + "g"
+	case w < Tonne:
+		return strconv.FormatFloat(rounding.RoundNearest(w.Kilograms(), 2), 'f', -1, 64) + "kg"
+	default:
+		return strconv.FormatFloat(rounding.RoundNearest(w.Tonnes(), 2), 'f', -1, 64) + "tn"
+	}
 }
 
 func (w Weight) Kilograms() float64 {
-	return rounding.RoundNearest(float64(w), 2)
+	return rounding.RoundNearest(float64(w/Kilogram), 2)
 }
 
 func (w Weight) Newtons() float64 {
 	return rounding.RoundNearest(float64(w/Newton), 2)
+}
+
+func (w Weight) Grams() float64 {
+	return rounding.RoundNearest(float64(w/Gram), 2)
+}
+
+func (w Weight) Milligrams() float64 {
+	return rounding.RoundNearest(float64(w/Milligram), 2)
 }
 
 func (w Weight) Ounces() float64 {
