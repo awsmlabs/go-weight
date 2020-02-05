@@ -11,15 +11,16 @@ type Weight float64
 
 // weights
 const (
-	Milligram Weight = 1
+	Microgram Weight = 1
+	Milligram        = Microgram * 1000
+	Carat            = Milligram * 200
 	Gram             = Milligram * 1000
 	Kilogram         = Gram * 1000
-	Newton           = Kilogram / 9.81
+	Tonne            = Kilogram * 1000
 	Ounce            = Gram * 28.3495
 	Pound            = Ounce * 16
 	Stone            = Pound * 14
-	Tonne            = Kilogram * 1000
-	Carat            = Kilogram / 5000
+	Newton           = Kilogram / 9.81
 )
 
 func (w Weight) String() string {
@@ -81,6 +82,6 @@ func (w *Weight) UnmarshalJSON(b []byte) (err error) {
 	return
 }
 
-func (w *Weight) MarshalJSON() ([]byte, error) {
-	return []byte(w.String()), nil
+func (w Weight) MarshalJSON() ([]byte, error) {
+	return []byte(`"` + w.String() + `"`), nil
 }

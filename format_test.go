@@ -4,27 +4,6 @@ import (
 	"testing"
 )
 
-func TestToString(t *testing.T) {
-	testCases := []struct {
-		in       Weight
-		expected string
-	}{
-		{5 * Kilogram, "5kg"},
-		{2.2 * Pound, "997.9g"},
-		{165 * Pound, "74.84kg"},
-		{1000 * Gram, "1kg"},
-		{9.8 * Newton, "998.98g"},
-		{5000 * Carat, "1kg"},
-		{1 * Tonne, "1tn"},
-	}
-
-	for _, tc := range testCases {
-		if out := tc.in.String(); out != tc.expected {
-			t.Errorf("Wrong string, got %v expected %v", out, tc.expected)
-		}
-	}
-}
-
 func TestParseWeightToKilograms(t *testing.T) {
 	testCases := []struct {
 		in       string

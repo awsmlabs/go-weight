@@ -24,6 +24,8 @@ func leadingInt(s string) (x int64, rem string, err error) {
 }
 
 var unitMap = map[string]float64{
+	"µg": float64(Microgram),
+	"mg": float64(Milligram),
 	"kg": float64(Kilogram),
 	"oz": float64(Ounce),
 	"lb": float64(Pound),
