@@ -25,6 +25,8 @@ const (
 
 func (w Weight) String() string {
 	switch {
+	case w < Milligram:
+		return strconv.FormatFloat(rounding.RoundNearest(w.Micrograms(), 2), 'f', -1, 64) + "µg"
 	case w < Gram:
 		return strconv.FormatFloat(rounding.RoundNearest(w.Milligrams(), 2), 'f', -1, 64) + "mg"
 	case w < Kilogram:
@@ -50,6 +52,10 @@ func (w Weight) Grams() float64 {
 
 func (w Weight) Milligrams() float64 {
 	return rounding.RoundNearest(float64(w/Milligram), 2)
+}
+
+func (w Weight) Micrograms() float64 {
+	return rounding.RoundNearest(float64(w/Microgram), 2)
 }
 
 func (w Weight) Ounces() float64 {
